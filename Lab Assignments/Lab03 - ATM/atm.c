@@ -100,7 +100,7 @@ void displayBalance(int balance, int transactions) {
 
 // Withdrawal function
 int withdrawal(int balance, int transactions) {
-    unsigned int withdrawalAmount;
+    double withdrawalAmount;
     unsigned int action;
     double fractpart, intpart;
 
@@ -109,14 +109,14 @@ int withdrawal(int balance, int transactions) {
     puts("Cash Withdrawal Conditions! -> MUST not Exceed 1000 and MUST be a multiple of 20");
     printf("Your current balance amount is: $%d\n", balance);
     printf("\tEnter WITHDRAW AMOUNT: ");
-    scanf("%d", &withdrawalAmount);
+    scanf("%lf", &withdrawalAmount);
 
     // If withdrawal amount matches these conditions, asks user until correct input
     fractpart = modf(withdrawalAmount, &intpart);
-    while(withdrawalAmount > 1000 || fractpart > 0 || withdrawalAmount > balance || withdrawalAmount % 20 != 0) {
+    while(withdrawalAmount > 1000 || fractpart > 0 || withdrawalAmount > balance || (int)withdrawalAmount % 20 != 0) {
         puts("Invalid deposit amount");
         printf("\tEnter WITHDRAWAL AMOUNT: ");
-        scanf("%d", &withdrawalAmount);
+        scanf("%lf", &withdrawalAmount);
         fractpart = modf(withdrawalAmount, &intpart);
     }
 
