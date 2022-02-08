@@ -20,7 +20,7 @@ void fillArray(int array[], int size);
 int main(void) {
     int array[SIZE];
 
-    //fillArray(array, SIZE);
+    fillArray(array, SIZE);
     //findWithRange(array, SIZE);
     //reverseArray(array, SIZE);
     //reverseSelectedRangeWithinArray(array, SIZE);
@@ -38,7 +38,7 @@ void printArray(int array[], int size) {
 
 // Fills a 1D array with random integers. Integers are picked in the range rand_min to rand_max (inclusive)
 void fillArray(int array[], int size) {
-    //srand((unsigned)time(NULL));
+    srand((unsigned)time(NULL));
     for(size_t i=1; i<=SIZE; ++i) {
         array[i] = rand() % (RAND_MAX+1) + RAND_MIN;
     }
