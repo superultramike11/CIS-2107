@@ -1,44 +1,30 @@
-// C program to find diameter, circumference and area of a circle using functions
-
 #include <stdio.h>
-#define PI 3.1415
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <time.h>
 
-// Your Function prototypes should be listed first*/
-float diameter(float radius);
-float circumference(float radius);
-float area(float radius);
+#define SIZE 5
+
+int sumEvenNumbers(int array[], int size);
 
 int main() {
-    float radius, diameter, circ, area;
-    /* Reads radius of the circle from user */
+    int array[SIZE] = {1,2,3,4,5};
 
-    printf("Enter radius of the circle: ");
-    scanf("%f", &radius);
-
-    diameter = diameter(radius);                //Call diameter function
-    circ = circumference(radius);               //Call circumference function
-    area = area(radius);                        //Call area function
-
-    printf("Diameter of the circle = %.2f units\n", dia);
-    printf("Circumference of the circle = %.2f units\n", circ);
-    printf("Area of the circle = %.2f sq. units\n", ar);
+    sumEvenNumbers(array, SIZE);
 
     return 0;
 }
 
-// Your Function implementations should be listed last*/
+int sumEvenNumbers(int array[], int size) {
+    int sum = 0;
 
-// diameter function: Find the diameter of a circle whose radius is given. Remember diameter = 2 * Radius
-float diameter(float radius) {
-    return (2 * radius);
-}
-
-// circumference function: Find circumference of the circle whose radius is given. Remember circumference = 2 * PI * Radius
-float circumference(float radius) {
-    return (2* PI * radius);
-}
-
-// area function: Find area of the circle whose radius is given. Remember Area = PI * Radius2
-float area(float radius) {
-    return (PI * (radius * radius));
+    for(int i=0; i<SIZE; ++i) {
+        if(array[i] % 2 == 0) {
+            sum += array[i];
+        }
+    }
+    printf("Sum = %d", sum);
+    return sum;
 }
