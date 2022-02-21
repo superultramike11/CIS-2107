@@ -13,8 +13,8 @@
 #include <time.h>
 
 // Defining static variables
-static int rows = 0;
-static int cols = 0;
+static unsigned int rows = 0;
+static unsigned int cols = 0;
 
 // Function prototypes
 int max(int array[][cols]);
@@ -37,8 +37,8 @@ int main(void) {
 
     // Ask user for array elements
     puts("");
-    for(int i=0; i<rows; i++) {
-        for(int j=0;j<cols;j++) {
+    for(size_t i=0; i<rows; ++i) {
+        for(size_t j=0;j<cols; ++j) {
             printf("\tenter [%d][%d]: ", i, j);
             scanf("%d, ", &array[i][j]);
         }
@@ -57,8 +57,8 @@ int main(void) {
 // Returns the maximum value in the 2d array
 int max(int array[][cols]) {
     int max = 0;
-    for(int i=0; i<rows; ++i) {
-        for(int j=0;j<cols; ++j) {
+    for(size_t i=0; i<rows; ++i) {
+        for(size_t j=0;j<cols; ++j) {
             if(array[i][j] > max) {
                 max = array[i][j];
             }
@@ -71,9 +71,9 @@ int max(int array[][cols]) {
 // Returns the sum of the elements in Row X of the 2d array
 int rowSum(int array[][cols]) {
     int sum=0;
-    for(int i=0; i<rows; ++i) {
-        for(int j=0; j<cols; ++j) {
-            sum = sum + array[i][j];
+    for(size_t i=0; i<rows; ++i) {
+        for(size_t j=0; j<cols; ++j) {
+            sum += array[i][j];
         }
         printf("Sum of row %d = %d\n", i+1, sum);
         sum = 0;
@@ -85,8 +85,8 @@ int rowSum(int array[][cols]) {
 // Returns the sum of the elements in Column x of the 2d array
 int columnSum(int array[][cols]) {
     int sum;
-    for(int i=0; i<cols; ++i) {
-        for(int j=0; j<rows; ++j) {
+    for(size_t i=0; i<cols; ++i) {
+        for(size_t j=0; j<rows; ++j) {
             sum += array[j][i];
         }
         printf("Sum of column %d = %d\n", i+1, sum);
@@ -111,9 +111,9 @@ bool isSquare(int array[][cols]) {
 // Displays the 2 dim-array elements
 void displayOutputs(int array[][cols]) {
     puts("Here is your 2Dim array:");
-    for(int i=0; i<rows; i++) {
+    for(size_t i=0; i<rows; ++i) {
         printf("%s", "[");
-        for(int j=0;j<cols;j++) {
+        for(size_t j=0;j<cols; ++j) {
             if(j == cols - 1) {
                 printf("%d", array[i][j]);
             }
