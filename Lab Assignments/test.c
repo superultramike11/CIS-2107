@@ -1,30 +1,16 @@
 #include <stdio.h>
-#include <stdio.h>
-#include <math.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <time.h>
+#define SIZE 20
 
-#define SIZE 5
-
-int sumEvenNumbers(int array[], int size);
+size_t getSize(float *ptr);
 
 int main() {
-    int array[SIZE] = {1,2,3,4,5};
+    float array[SIZE];
 
-    sumEvenNumbers(array, SIZE);
-
-    return 0;
+    printf("The number of bytes in the array is %u"
+           "\nThe number of bytes returned by getSize is %u\n",
+           sizeof(array), getSize(array));
 }
 
-int sumEvenNumbers(int array[], int size) {
-    int sum = 0;
-
-    for(int i=0; i<SIZE; ++i) {
-        if(array[i] % 2 == 0) {
-            sum += array[i];
-        }
-    }
-    printf("Sum = %d", sum);
-    return sum;
+size_t getSize(float *ptr) {
+    return sizeof(ptr);
 }
