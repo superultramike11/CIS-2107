@@ -25,7 +25,7 @@ void average(int students, int exams, int grades[students][exams]);
 
 // Main function
 int main() {
-    void (*f[4])(int students, int exams, int grades[students][exams]) = {printArray, minimum, maximum, average};
+    void (*processGrades[4])(int students, int exams, int grades[students][exams]) = {printArray, minimum, maximum, average};
     int students, exams;
 
     // Ask user for # of rows and cols
@@ -40,8 +40,8 @@ int main() {
 
     // Ask user for array elements
     puts("");
-    for(size_t i=0; i<students; ++i) {
-        for(size_t j=0;j<exams; ++j) {
+    for(int i=0; i<students; ++i) {
+        for(int j=0;j<exams; ++j) {
             printf("\tenter [%d][%d]: ", i, j);
             scanf("%d, ", &grades[i][j]);
         }
@@ -56,7 +56,7 @@ int main() {
     while(choice >= 0 && choice < 4) {
         // invoke function at location choice in array f and pass
         // choice as an argument
-        (*f[choice])(students, exams, grades);
+        (*processGrades[choice])(students, exams, grades);
 
         printf("%s", "Enter a choice:\n\t0 Print the array of grades\n\t1 Find the minimum grade\n\t2 Find the maximum grade\n\t3 Print the average on all tests for each student\n\t4 End Program\n\t");
         scanf("%d", &choice);
@@ -67,22 +67,57 @@ int main() {
 
 // students are pupils, exams are tests
 void printArray(int students, int exams, int grades[students][exams]){
-    puts("Here is your 2Dim array:");
-    printf("# of students is: %d\n", students);
-    printf("# of exams is: %d\n", exams);
-    for(size_t i=0; i<students; ++i) {
-        for(size_t j=0;j<exams; ++j) {
-            printf("%d ", grades[i][j]);
+    puts("Here is your 2D Array of Students and Exams:");
+    for (size_t i = 0; i < students; i++) {
+        for (size_t j = 0; j < exams; j++) {
+            // use *(*(matrix + i) + j) for matrix[i][j]
+            printf("\t%d ", *(*(grades + i) + j));
         }
+        printf("\n");
     }
+    puts("");
 }
 
 void minimum(int students, int exams, int grades[students][exams]){
-    puts("You entered %d so minimum was called\n\n");
+    printf("%s", "Here is the lowest (minimum) grade in the entire section: ");
+    int temp = 1000000;
+    for (size_t i = 0; i < students; i++) {
+        for (size_t j = 0; j < exams; j++) {
+            // use *(*(matrix + i) + j) instead of matrix[i][j]
+            if(temp > *(*(grades + i) + j)) {
+                temp = *(*(grades + i) + j);
+            }
+        }
+    }
+    printf("%d\n\n", temp);
 }
+
 void maximum(int students, int exams, int grades[students][exams]){
-    puts("You entered %d so maximum was called\n\n");
+    printf("%s", "Here is the highest (max) grade in the entire section: ");
+    int temp = 0;
+    for (size_t i = 0; i < students; i++) {
+        for (size_t j = 0; j < exams; j++) {
+            // use *(*(matrix + i) + j) instead of matrix[i][j]
+            if(temp < *(*(grades + i) + j)) {
+                temp = *(*(grades + i) + j);
+            }
+        }
+    }
+    printf("%d\n\n", temp);
 }
+
 void average(int students, int exams, int grades[students][exams]){
-    puts("You entered %d so average was called\n\n");
+    puts("Here is the average grade for each test");
+    double sum, average;
+
+    for(int i=0; i<exams; ++i) {
+        for(int j=0; j<students; ++j) {
+            sum += *(*(grades + j) + i);
+        }
+        average = sum / exams;
+        printf("\tSum of column %d = %.2lf\n", i+1, average);
+        sum = 0;
+        average = 0;
+    }
+    puts("");
 }
