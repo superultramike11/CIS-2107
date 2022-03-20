@@ -22,7 +22,7 @@ void printRace(int hPos,int tPos);
 // Main Function
 int main(){
     // Declare random # generator
-    srand((unsigned)time(NULL));
+    //srand((unsigned)time(NULL));
 
     // Declare T and H position
     int hPos =1;						//hare start position is 1, cannot slip past 1
@@ -36,7 +36,7 @@ int main(){
     // Main function calls
     while(hPos != 70 && tPos != 70){
         printf("\t");
-        sleep(1);						//slows down the race (reduce number to speed up the race 0.9 works well)
+        sleep(0.9);						//slows down the race (reduce number to speed up the race 0.9 works well)
         tortMove(&tPos);
         hareMove(&hPos);
         printRace(hPos,tPos);
