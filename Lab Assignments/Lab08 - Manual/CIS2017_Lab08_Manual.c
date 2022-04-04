@@ -79,7 +79,7 @@ int main() {
     //test for startsWithB
     char *series[] = {"bored", "hello", "Brother", "manual", "bothered"};
     int size = sizeof(series) / sizeof(series[0]);
-    //startsWithB(series, size);
+    startsWithB(series, size);
 
     //test for endsWithed
     endsWithed(series, size);
@@ -128,14 +128,42 @@ void comparePartialStr(const char *s1, const char *s2, int n) {
 }
 
 //6.(Random Sentences)
+// article noun verb preposition article and noun
 void randomize(void) {
+    char *article[] = {"the", "a", "one", "some", "any"};
+    char *noun[] = {"boy", "girl", "dog", "town", "car"};
+    char *verb[] = {"drove", "jumped", "ran", "walked", "skipped"};
+    char *preposition[] = {"to", "from", "over", "under", "on"};
 
 
 }
 
-//7.(Tokenizing Telephone Numbers)
+//7.(Tokenize Telephone Numbers)
+// (267) 436-6281
 int tokenizeTelNum(char *num) {
+    char area[4] = {};
+    char number[9] = {};
+    char *p = strtok(num, "()- ");
 
+    if ( p != NULL ) {
+        strncat ( area, p, sizeof area - 1 );
+    }
+
+    p = strtok ( NULL, "()- " );
+
+    if ( p != NULL ) {
+        strncat ( number, p, sizeof number - 1 );
+    }
+
+    p = strtok ( NULL, "()- " );
+
+    if ( p != NULL ) {
+        strncat ( number, p, sizeof number - 1 );
+    }
+
+    printf("Area code: %d", atoi(area));
+    //puts(area);
+    puts(number);
     return 0;
 }
 
@@ -199,41 +227,30 @@ int countWords(char *string) {
     return count;
 }
 
-/*
 //13.(Strings Starting with "b")
+// "bored", "hello", "Brother", "manual", "bothered"
 void startsWithB(char *string[], int size) {
-    int i,j = 0;
-    char ch = 'b';
-    while(string[i] != '\0') {
-        if((i==0) && string[i]==ch) {
-            j=i;
-            while(string[j]!=' ') {
-                printf("%c", string[j]);
-                j++;
+    //char substr = 'b';
+    for(int i=0; i<size; i++) {
+        for(int j=0; j<strlen(string[i]); j++) {
+            if(string[i][j] == 'B' || string[i][j] == 'b') {
+                printf("%s starts with b\n", string[i]);
             }
-            printf(",");
         }
-        if((string[i]==' ') && (string[i+1]==ch)) {
-            j=i+1;
-            while(string[j]!=' '&&j<size) {
-                printf("%c", string[j]);
-                j++;
-            }
-            printf(",");
-        }
-
-        i++;
     }
+    puts("");
 }
-*/
 
 //14.(Strings Ending with "ed") // size is # of words in array
+// "bored", "hello", "Brother", "manual", "bothered"
 // step through this like a 2d array
 void endsWithed(char *string[], int size) {
-    int len = strlen(string);
-    for (int i = 0; i<size; i++ ) {
-        if(size > 0 && string[i][len-1] == 'd' && string[i][len-2] == 'e') {
-            printf("\n%s", string[i]);
+    for(int i=0; i<size; i++) {
+        for(int j=0; j<strlen(string[i]); j++) {
+            if(string[i][j]=='e' && string[i][j+1] == 'd') {
+                printf("%s ends with ed\n", string[i]);
+            }
         }
     }
+    puts("");
 }
