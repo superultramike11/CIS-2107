@@ -1,15 +1,12 @@
 #include <stdio.h>
-
-int fun(int *a, int *b);
+#include <string.h>
 
 int main() {
-    int x = 10, y = 20;
-    fun(&x, &y);
-    printf("x = %d y = %d\n", x,y);
-}
+    struct state {
+        int population;
+        char description[30];
+    };
 
-int fun(int *a, int *b) {
-    *a = *a+*b;
-    *b = *a-*b;
-    *a = *a-*b;
+    struct state names[3] = { { 12807060, "PA"}, { 8908520, "NJ"}, {19542209, "NY"} };
+    printf("%d %s", names[2].population, (*(names+2)).description);
 }
