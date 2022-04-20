@@ -1,5 +1,4 @@
 #include "string.h"
-#include <stdio.h>
 
 int all_letters(char *s) {
     char *t=s;
