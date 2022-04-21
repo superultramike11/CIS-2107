@@ -55,7 +55,7 @@ int main(void) {
     char *h = "Star";
     int index = find(h, n);
     if (index == -1) {
-        printf("'%c' not found.", find);
+        printf("'%c' not found.", n);
     } else printf("'%c' is found at index %d", n, index);
 
     puts("Test for ptr_to");
@@ -63,6 +63,11 @@ int main(void) {
     char *ptr_to_String = "Star";
     char* ptr = ptr_to(ptr_to_String, ptr_to_Char);
     printf("Pointer returns: %c\n", ptr);
+
+    puts("Test for is_empty");
+    char *empty = "Hello";
+    int is_empty_ = is_empty(empty);
+    printf("is_empty value: %d\n", is_empty_);
 
     return 0;
 }

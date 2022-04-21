@@ -1,25 +1,16 @@
 #include "string.h"
 #include <stdio.h>
 
-int main() {
-    puts("Test for is_empty");
-    char *s = " ";
-    int is_empty_ = is_empty(s);
-    printf("is_empty value: %d\n", is_empty_);
-    if(is_empty == 1) {
-        printf("String:%s\n", s);
-        puts("String is empty");
-    } else puts("String is NOT empty");
-}
-
 int is_empty(char *s) {
-    for(int i=0; s[i] != '\0'; i++) {
-        if(s[i] != ' ' || s[i] != '\t' || s[i] != '\n') {
+    while(*s != '\0') {
+        // if it's not whitespace then there must be a letter thereby return 0
+        if(s[0] == ' ') {
             return 1;
         }
-        else {
+        if(*s != ' ' || *s != '\t' || *s != '\n') {
             return 0;
         }
+        s++;
     }
-    return 0;
+    return 1;
 }
