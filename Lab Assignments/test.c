@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include <string.h>
-
+char* magic();
 int main() {
-    struct state {
-        int population;
-        char description[30];
-    };
+    char *ptr;
+    ptr = magic();
+    printf("%s\n", ptr);
+    return 0;
+}
 
-    struct state names[3] = { { 12807060, "PA"}, { 8908520, "NJ"}, {19542209, "NY"} };
-    printf("%d %s", names[2].population, (*(names+2)).description);
+char *magic() {
+    char disk[30];
+    strcpy(disk, "memory in C");
+    return (disk);
 }
