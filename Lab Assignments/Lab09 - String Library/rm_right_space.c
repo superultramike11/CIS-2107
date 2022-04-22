@@ -1,6 +1,13 @@
 #include "string.h"
 #include <stdio.h>
 
+int main() {
+    puts("Test for rm_left_space");
+    char right[] = "Hello      ";
+    printf("Before Remove Left Space:%s\n", right);
+    rm_right_space(right);
+}
+
 void rm_right_space(char *s) {
     int index = 0, i = 0, j;
     while(s[index] == ' ') {

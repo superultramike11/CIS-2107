@@ -1,6 +1,5 @@
-#include "string.h"
 #include <stdio.h>
-#include <ctype.h>
+#include "string.h"
 
 int main(void) {
     puts("Test for all_letters");
@@ -10,9 +9,7 @@ int main(void) {
     if(all_letters_) {
         printf("String:%s\n", s);
         puts("All characters in string were letters\n");
-    } else {
-        puts("All characters in string were not letters");
-    }
+    } else puts("All characters in string were not letters");
 
     puts("Test for num_in_range");
     int num_in_range_ = num_in_range(s, 'a', 'h');
@@ -38,25 +35,39 @@ int main(void) {
     printf("%s %d\n\n", "The strings differ in length by", len_diff_);
 
     puts("Test for rm_left_space");
-    char left[50];
-    printf("Enter string: ");
-    gets(left);
-    printf("\nBefore Left Trim:%s\n", left);
+    char left[] = "    Hello";
+    printf("Before Remove Left Space:%s\n", left);
     rm_left_space(left);
 
-    puts("Test for rm_right_space");
-    char right[50];
-    printf("Enter string: ");
-    gets(right);
-    printf("\nBefore Right Trim:%s\n", right);
+    puts("Test for rm_left_space");
+    char right[] = "Hello      ";
+    printf("Before Remove Left Space:%s\n", right);
     rm_right_space(right);
 
     puts("Test for rm_space");
-    char space[50];
-    printf("Enter a string: ");
-    gets(space);
+    char space[] = "Hello World";
+    printf("Before remove all spaces:%s\n", space);
     rm_space(space);
-    printf("%s", space);
+    printf("After remove all spaces:%s\n", space);
+
+    puts("Test for find");
+    char *n = 'a';
+    char *h = "Star";
+    int index = find(h, n);
+    if (index == -1) {
+        printf("'%c' not found.", n);
+    } else printf("'%c' is found at index %d", n, index);
+
+    puts("Test for ptr_to");
+    char *ptr_to_Char = 'a';
+    char *ptr_to_String = "Star";
+    char* ptr = ptr_to(ptr_to_String, ptr_to_Char);
+    printf("Pointer returns: %c\n", ptr);
+
+    puts("Test for is_empty");
+    char *empty = "Hello";
+    int is_empty_ = is_empty(empty);
+    printf("is_empty value: %d\n", is_empty_);
 
     return 0;
 }
