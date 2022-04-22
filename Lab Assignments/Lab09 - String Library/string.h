@@ -19,7 +19,7 @@ void take_last(char *s, int n);
 char *dedup(char *s);
 char *pad(char *s, int d);
 int ends_with_ignore_case(char *s, char *suff);
-char *repeat(char *s, int x, char sep);
+char *repeat(char *str1, int x, char *str2);
 char *replace(char *s, char *pat, char *rep);
 char *str_connect(char **strs, int n, char c);
 void rm_empties(char **words);
