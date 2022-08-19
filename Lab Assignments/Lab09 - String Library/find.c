@@ -1,4 +1,3 @@
-// returns the index of the first occurrence of n in the string h or -1 if it isn't found
 #include "string.h"
 #include <stdio.h>
 

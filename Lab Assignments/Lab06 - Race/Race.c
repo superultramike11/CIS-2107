@@ -36,7 +36,7 @@ int main(){
     // Main function calls
     while(hPos != 70 && tPos != 70){
         printf("\t");
-        sleep(1);						//slows down the race (reduce number to speed up the race 0.9 works well)
+        sleep(0.1);						//slows down the race (reduce number to speed up the race 0.9 works well)
         tortMove(&tPos);
         hareMove(&hPos);
         printRace(hPos,tPos);

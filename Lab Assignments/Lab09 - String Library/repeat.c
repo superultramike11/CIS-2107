@@ -1,15 +1,6 @@
 #include "string.h"
 #include <stdio.h>
 
-/*
-int main() {
-    puts("Test for repeat");
-    char str1[100] = "all right", str2[100] = ",";
-    int x = 3;
-    repeat(str1, x, str2);
-}
-*/
-
 char *repeat(char *str1, int x, char *str2) {
     char str3[100];
     int i = 0, j = 0;

@@ -3,7 +3,6 @@
 
 int is_empty(char *s) {
     while(*s != '\0') {
-        // if it's not whitespace then there must be a letter thereby return 0
         if(s[0] == ' ') {
             return 1;
         }

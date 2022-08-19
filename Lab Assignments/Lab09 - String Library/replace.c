@@ -1,18 +1,9 @@
 #include "string.h"
 #include <stdio.h>
 
-/*
-int main() {
-    puts("Test for pad");
-    char add1[100] = "Steph is the X";
-    char word[100] = "X";
-    char add2[100] = "best";
-    replace(add1, word, add2);
-}
-*/
 
 char *replace(char *s, char *pat, char *rep) {
-    char neww[100];
+    char word[100];
     int i, j = 0, k = 0,n = 0;
     int flag = 0;
 
@@ -37,13 +28,13 @@ char *replace(char *s, char *pat, char *rep) {
         else
             flag = 0;
 
-        neww[n++] = s[i];
+        word[n++] = s[i];
     }
 
-    neww[n] = '\0';
+    word[n] = '\0';
 
-    printf("Final string: %s%s",neww, rep);
+    printf("Final string: %s%s",word, rep);
 
-    return neww;
+    return word;
 }
 

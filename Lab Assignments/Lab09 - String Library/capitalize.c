@@ -2,15 +2,6 @@
 #include <stdio.h>
 #include <ctype.h>
 
-/*
-int main() {
-    puts("Test for capitalize");
-    char capital[100] = "FIX ME CAPITALIZED";
-    printf("Original String: %s\n", capital);
-	capitalize(capital);
-}
-*/
-
 void capitalize(char *str) {
 	for(int i=0; str[i]!='\0'; i++) {
 		if(i==0) {

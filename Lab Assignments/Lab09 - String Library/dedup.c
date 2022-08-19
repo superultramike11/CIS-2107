@@ -1,15 +1,5 @@
 #include "string.h"
 #include <stdio.h>
-#include <ctype.h>
-
-/*
-int main() {
-    puts("Test for dedup");
-    char dedup1[100] = "hello";
-    printf("Old String: %s\n", dedup1);
-    printf("New string: %s\n", dedup(dedup1));
-}
-*/
 
 char *dedup(char *s) {
     char *ptr = s;

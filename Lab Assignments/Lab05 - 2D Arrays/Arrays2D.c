@@ -1,3 +1,4 @@
+
 /*
     Name: Michael Ewing
     Date: 2/20/2022
@@ -29,6 +30,7 @@ int main(void) {
     puts("Let's create a 2Dim array!\n");
     printf("\tHow many rows? ");
     scanf("%d", &rows);
+    printf("\n You put in %d rows you dingus!\n", rows);
     printf("\tHow many colums? ");
     scanf("%d", &cols);
 
@@ -46,12 +48,13 @@ int main(void) {
     puts("");
 
     // Array function calls
-    max(array);
+    //max(array);
+
     rowSum(array);
+    printf("Max element is %d\n\n", max(array));
     columnSum(array);
     isSquare(array);
     displayOutputs(array);
-
 }
 
 // Returns the maximum value in the 2d array
@@ -64,7 +67,7 @@ int max(int array[][cols]) {
             }
         }
     }
-    printf("Max element is %d\n\n", max);
+
     return max;
 }
 

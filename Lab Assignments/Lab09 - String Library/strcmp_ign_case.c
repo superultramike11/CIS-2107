@@ -2,15 +2,6 @@
 #include <stdio.h>
 #include <ctype.h>
 
-/*
-int main() {
-    puts("Test for strcmp_ign_case");
-    char strcmp1[100] = "hello";
-    char strcmp2[100] = "hello";
-    printf("Value returned: %d", strcmp_ign_case(strcmp1, strcmp2));
-}
-*/
-
 int strcmp_ign_case(char *s1, char *s2) {
     int i, len1=0,len2=0;
     while(s1[len1]!='\0') {
