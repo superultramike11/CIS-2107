@@ -1,6 +1,9 @@
 #include <stdio.h>
 int main() {
-    float a = 20.5;
-    float *p = &a;
-    printf("%d", *p);
+    unsigned char x=0x31;
+    printf("~x=0x%x\n", ~x);
+    printf("~~x=0x%x\n", ~~x);
+
+    printf("!x=0x%x\n", !x);
+    printf("!!x=0x%x\n", !!x);
 }

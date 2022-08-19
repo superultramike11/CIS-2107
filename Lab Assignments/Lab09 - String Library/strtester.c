@@ -69,5 +69,67 @@ int main(void) {
     int is_empty_ = is_empty(empty);
     printf("is_empty value: %d\n", is_empty_);
 
+    puts("Test for str_zip");
+    char *ptr1 = "Temple";
+    char *ptr2 = "Hello";
+    char* ptr_zip = str_zip(ptr1, ptr2);
+
+    puts("Test for capitalize");
+    char capital[50] = "FIX ME CAPITALIZED";
+    printf("Original String: %s\n", capital);
+	capitalize(capital);
+
+	puts("Test for strcmp_ign_case");
+    char strcmp1[50] = "hello";
+    char strcmp2[50] = "hello";
+    printf("Value returned: %d", strcmp_ign_case(strcmp1, strcmp2));
+
+    puts("Test for strcmp_ign_case");
+    char last1[50] = "hello";
+    int limit = 3;
+    take_last(last1, limit);
+
+    puts("Test for dedup");
+    char dedup1[50] = "hello";
+    printf("Old String: %s\n", dedup1);
+    printf("New string: %s\n", dedup(dedup1));
+
+    puts("Test for pad");
+    char pad1[100] = "hello";
+    int multi = 6;
+    printf("Old String: %s\n", pad1);
+    printf("New string: %s\n", pad(pad1, multi));
+
+    puts("Test for ends_with_ignore_case");
+    char suff[100] = "ing";
+    char sends[100] = "Coding";
+    printf("Returns: %d\n", ends_with_ignore_case(sends, suff));
+
+    puts("Test for repeat");
+    char str1[100] = "all right", str2[100] = ",";
+    int x = 3;
+    repeat(str1, x, str2);
+
+    puts("Test for replace");
+    char add1[100] = "Steph is the X";
+    char word[100] = "X";
+    char add2[100] = "best";
+    replace(add1, word, add2);
+
+    puts("Test for str_connect");
+    char *array_string[] = {"Washington", "Adams", "Jefferson"};
+    int num = 4;
+    char c = '-';
+    str_connect(array_string, n, c);
+
+    puts("Test for empties");
+    char *word_empty[] = {"Hello", "World", " ", " ", "Steph"};
+    rm_empties(word_empty);
+
+    puts("Test for str_chop_all");
+    char arr_chop[50] = "dog is the best";
+    char c_chop = '/';
+    str_chop_all(arr_chop, c_chop);
+
     return 0;
 }
